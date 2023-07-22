@@ -10,9 +10,11 @@
 
 void swap(int *array, int i, int j)
 {
-    int temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+	int temp;
+
+	temp = array[i];
+	array[i] = array[j];
+	array[j] = temp;
 }
 
 /**
@@ -26,26 +28,26 @@ void swap(int *array, int i, int j)
 
 int partition(int *array, int start, int end, size_t size)
 {
-    int pivot = array[end];
-    int i = start - 1;
-    int j;
+	int pivot = array[end];
+	int i = start - 1;
+	int j;
 
-    for (j = start; j < end; j++)
-    {
-        if (array[j] < pivot)
-        {
-            i++;
-            swap(array, i, j);
-            if (i != j)
-                print_array(array, size);
-        }
-    }
-    if (array[end] < array[i + 1])
-    {
-        swap(array, i + 1, end);
-        print_array(array, size);
-    }
-    return (i + 1);
+	for (j = start; j < end; j++)
+	{
+		if (array[j] < pivot)
+		{
+			i++;
+			swap(array, i, j);
+			if (i != j)
+				print_array(array, size);
+		}
+	}
+	if (array[end] < array[i + 1])
+	{
+		swap(array, i + 1, end);
+		print_array(array, size);
+	}
+	return (i + 1);
 }
 
 /**
@@ -59,14 +61,14 @@ int partition(int *array, int start, int end, size_t size)
 
 void quick_sort_recursive(int *array, int start, int end, size_t size)
 {
-    int p;
+	int p;
 
-    if (start < end)
-    {
-        p = partition(array, start, end, size);
-        quick_sort_recursive(array, start, p - 1, size);
-        quick_sort_recursive(array, p + 1, end, size);
-    }
+	if (start < end)
+	{
+		p = partition(array, start, end, size);
+		quick_sort_recursive(array, start, p - 1, size);
+		quick_sort_recursive(array, p + 1, end, size);
+	}
 }
 
 /**
@@ -79,7 +81,7 @@ void quick_sort_recursive(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-    if (size < 2 || !array)
-        return;
-    quick_sort_recursive(array, 0, size - 1, size);
+	if (size < 2 || !array)
+		return;
+	quick_sort_recursive(array, 0, size - 1, size);
 }
