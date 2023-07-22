@@ -24,7 +24,5 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
-void counting_sort(int *array, size_t size);
-int *make_counting(int max, int size, int *array);
 
 #endif /* SORT_H */
